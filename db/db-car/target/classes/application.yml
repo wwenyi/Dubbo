@@ -1,0 +1,22 @@
+
+#数据源
+spring:
+  datasource:
+    url: jdbc:mysql:///market?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    #xml文件存放位置
+mybatis:  mapper-locations: classpath:/mapper/*.xml
+#dubbo的配置
+dubbo:  scan:
+  #扫描的包    base-packages: com.wwy
+  application:    
+  #服务名        
+    name: db-car
+  registry:
+  #注册中心（zookeeper的地址和客户端端口）    address: zookeeper://192.168.40.152:2181
+    #协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。
+  protocol:
+    name: dubbo
+    port: 20880

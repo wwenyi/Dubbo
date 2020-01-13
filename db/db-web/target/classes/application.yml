@@ -1,0 +1,14 @@
+server:
+  port: 8000
+  servlet:    context-path: /
+    #dubbo相关配置
+dubbo:
+  scan:
+  #扫描的包
+    base-packages: com.wwy
+  application:    
+  #服务名        
+    name: db-web
+  registry:
+  #注册中心（zookeeper的地址和客户端端口）
+    address: zookeeper://192.168.40.152:2181
