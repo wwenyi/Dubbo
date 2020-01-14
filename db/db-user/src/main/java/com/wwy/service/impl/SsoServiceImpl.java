@@ -1,5 +1,6 @@
 package com.wwy.service.impl;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -49,6 +50,10 @@ public class SsoServiceImpl implements SsoService{
 		}
 	//用户信息正确，获取jwt令牌，将令牌传递给前端
 		String token=JwtHelper.generateJWT(userInfo.getUserId()+"", userInfo.getUserName(), "");
+		//将token放入cookie中
+		Cookie cookie=new Cookie("TOKEN",token);
+		cookie.setDomain("/");
+		cookie.setMaxAge(1000*60*60);
 		return APIEntry.OK(token);
 	}
 
