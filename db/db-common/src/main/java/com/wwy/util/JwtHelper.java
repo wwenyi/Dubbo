@@ -2,7 +2,6 @@ package com.wwy.util;
 
 import com.alibaba.fastjson.JSONObject;
 import com.wwy.common.jwtCommon;
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -10,7 +9,6 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
@@ -137,16 +135,4 @@ public class JwtHelper {
         }
         return retMap!=null?JSONObject.toJSONString(retMap):null;
     }
-
-    public static void main(String[] args) {
-       String jsonWebKey = generateJWT("123", "Judy",
-               "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36");
-       System.out.println(jsonWebKey);
-       Claims claims =  parseJWT(jsonWebKey);
-        System.out.println(claims);
-       System.out.println(validateLogin(jsonWebKey));
-
-    }
-
-
 }

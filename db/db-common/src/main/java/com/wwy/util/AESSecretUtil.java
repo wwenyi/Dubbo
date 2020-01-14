@@ -3,9 +3,6 @@ package com.wwy.util;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-
-import com.wwy.common.jwtCommon;
-
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.SecureRandom;
@@ -129,12 +126,6 @@ public class AESSecretUtil {
             result[i] = (byte) (high * 16 + low);
         }
         return result;
-    }
-
-    public static void main(String[] args) {
-        String ss = encryptToStr("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiIxMjMiLCJ1c2VyTmFtZSI6Ikp1ZHkiLCJleHAiOjE1MzI3Nzk2MjIsIm5iZiI6MTUzMjc3NzgyMn0.sIw_leDZwG0pJ8ty85Iecd_VXjObYutILNEwPUyeVSo", jwtCommon.DATAKEY);
-        System.out.println(ss);
-        System.out.println(decryptToStr(ss, jwtCommon.DATAKEY));
     }
 
 }
