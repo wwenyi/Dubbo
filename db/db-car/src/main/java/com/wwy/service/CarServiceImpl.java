@@ -6,6 +6,9 @@ import com.alibaba.dubbo.config.annotation.Service;
 import com.wwy.entry.Car;
 import com.wwy.mapper.CarMapper;
 import com.wwy.service.CarService;
+import com.wwy.util.ThreadLocalUtil;
+
+import lombok.extern.slf4j.Slf4j;
 /**
  * Carservice实现类
  * @author wwy
@@ -16,12 +19,14 @@ import com.wwy.service.CarService;
  */
 //注意，此处的@service注解为dubbo的service注解！！！
 @Service(timeout = 3000,loadbalance = "random")
+@Slf4j
 public class CarServiceImpl implements CarService{
 	@Autowired
 	private CarMapper mapper;
 	@Override
 	public List<Car> getAll() {
-		System.out.println("我是1");
+		String username = ThreadLocalUtil.get();
+		log.info(username+"访问了该服务");
 		return mapper.getAll();
 	}
 

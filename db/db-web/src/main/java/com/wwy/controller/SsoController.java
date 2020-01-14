@@ -1,23 +1,15 @@
 package com.wwy.controller;
 
-import java.util.List;
-
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.wwy.entry.APIEntry;
-import com.wwy.entry.Car;
 import com.wwy.entry.User;
-import com.wwy.service.CarService;
 import com.wwy.service.SsoService;
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 

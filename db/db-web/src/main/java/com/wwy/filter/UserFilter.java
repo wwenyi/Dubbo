@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import com.alibaba.fastjson.JSONObject;
 import com.wwy.util.JwtHelper;
+import com.wwy.util.ThreadLocalUtil;
 /**
  * 验证用户是否登录的拦截器
  * @author wwy
@@ -38,7 +39,9 @@ public class UserFilter implements HandlerInterceptor{
 				JSONObject json=JSONObject.parseObject(userJson);
 				//获取用户名信息，存放到请求头中
 				String username=json.getString("userName");
-				response.setHeader("token", username);
+				//response.setHeader("token", username);
+				//将用户信息存储到Thread中，方便后续使用,实际使用中一般是存储user对象，这里以用户名为例
+				ThreadLocalUtil.set(username);
 				return true;
 			}
 		}
