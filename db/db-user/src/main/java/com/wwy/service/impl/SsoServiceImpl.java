@@ -53,6 +53,7 @@ public class SsoServiceImpl implements SsoService{
 		//将token放入cookie中
 		Cookie cookie=new Cookie("TOKEN",token);
 		cookie.setDomain("/");
+		cookie.setPath("/");
 		cookie.setMaxAge(1000*60*60);
 		return APIEntry.OK(token);
 	}
