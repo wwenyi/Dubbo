@@ -25,8 +25,6 @@ public class CarServiceImpl implements CarService{
 	private CarMapper mapper;
 	@Override
 	public List<Car> getAll() {
-		String username = ThreadLocalUtil.get();
-		log.info(username+"访问了该服务");
 		return mapper.getAll();
 	}
 

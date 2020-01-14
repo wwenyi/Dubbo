@@ -8,6 +8,8 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.wwy.entry.APIEntry;
 import com.wwy.entry.Car;
 import com.wwy.service.CarService;
+import com.wwy.util.ThreadLocalUtil;
+
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -36,6 +38,8 @@ private CarService service;
 @ApiOperation("查询所有")
 @GetMapping("getall")
 public APIEntry getAll() {
+	String username = ThreadLocalUtil.get();
+	System.out.println(username+"访问了服务");
 	List<Car> data = service.getAll();
 	return APIEntry.OK(data);
 }
