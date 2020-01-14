@@ -1,9 +1,6 @@
 package com.wwy.service.impl;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.dubbo.config.annotation.Service;
@@ -29,7 +26,7 @@ public class SsoServiceImpl implements SsoService{
 	 * 登录方法
 	 */
 	@Override
-	public APIEntry login(User user, HttpServletRequest request, HttpServletResponse response) {
+	public APIEntry login(User user) {
 		//1、参数校验
 		String username=null;
 		String password=null;
@@ -45,17 +42,15 @@ public class SsoServiceImpl implements SsoService{
 		password=MD5Util.getMD5(password);
 		//根据用户名查询用户信息
 		User userInfo=mapper.getUser(username);
+		System.out.println(userInfo);
 		if(userInfo==null||!password.equals(userInfo.getPassWord())) {
 			return APIEntry.ERROR("用户名或密码错误");
 		}
 	//用户信息正确，获取jwt令牌，将令牌传递给前端
-		String token=JwtHelper.generateJWT(userInfo.getUserId()+"", userInfo.getUserName(), "");
-		//将token放入cookie中
-		Cookie cookie=new Cookie("TOKEN",token);
-		cookie.setDomain("/");
-		cookie.setPath("/");
-		cookie.setMaxAge(1000*60*60);
+		String token=JwtHelper.generateJWT(userInfo.getUserId()+"", userInfo.getUserName(), "huohu");
 		return APIEntry.OK(token);
+	
+
 	}
 
 }

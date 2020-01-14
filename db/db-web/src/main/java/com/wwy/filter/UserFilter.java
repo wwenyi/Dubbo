@@ -3,6 +3,8 @@ package com.wwy.filter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import com.alibaba.fastjson.JSONObject;
 import com.wwy.util.JwtHelper;
@@ -14,7 +16,7 @@ import com.wwy.util.JwtHelper;
  * @version v0.0.1
  *
  */
-
+@Component
 public class UserFilter implements HandlerInterceptor{
 	/**
 	 * 重写前置过滤器方法
@@ -22,11 +24,12 @@ public class UserFilter implements HandlerInterceptor{
 	 */
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+		System.out.println("yizhixing");
 		//获取所有的cookie
 		Cookie[] cookies = request.getCookies();
 		//遍历cookie
 		for(Cookie cookie:cookies) {
+			System.out.println(cookie.getValue());
 			if("TOKEN".equals(cookie.getName())) {
 				//获取token
 				String token=cookie.getValue();

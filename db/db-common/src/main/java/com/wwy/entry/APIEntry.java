@@ -1,5 +1,7 @@
 package com.wwy.entry;
 
+import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,7 +19,11 @@ import lombok.experimental.Accessors;
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)
-public class APIEntry{
+public class APIEntry implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8176079726451232742L;
 	/**
 	 * 返回数据的状态码
 	 * 500表示异常

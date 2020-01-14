@@ -46,6 +46,7 @@ public class JwtHelper {
         Date now = new Date(nowTimeMillis);
         //将BASE64SECRET常量字符串使用base64解码成字节数组
         byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(jwtCommon.BASE64SECRET);
+        System.out.println();
         //使用HmacSHA256签名算法生成一个HS256的签名秘钥Key
         Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
         //添加构成JWT的参数

@@ -1,8 +1,5 @@
 package com.wwy.service;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.wwy.entry.APIEntry;
 import com.wwy.entry.User;
 /**
@@ -15,6 +12,6 @@ import com.wwy.entry.User;
  */
 public interface SsoService {
 
-	APIEntry login(User user, HttpServletRequest request, HttpServletResponse response);
+	APIEntry login(User user);
 
 }
