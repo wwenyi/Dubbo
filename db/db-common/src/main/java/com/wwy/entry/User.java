@@ -1,5 +1,7 @@
 package com.wwy.entry;
 
+import java.io.Serializable;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,7 +19,11 @@ import lombok.ToString;
 @Data
 @ToString
 @ApiModel("用户信息")
-public class User {
+public class User implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 752631397548696163L;
 	/**
 	 * 分销商id
 	 */

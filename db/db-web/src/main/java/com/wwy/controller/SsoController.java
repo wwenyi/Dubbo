@@ -2,11 +2,10 @@ package com.wwy.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.wwy.entry.APIEntry;
 import com.wwy.entry.User;
@@ -39,7 +38,8 @@ public class SsoController {
 	 */
 	@ApiOperation("登录")
 	@PostMapping("login")
-	public APIEntry login(User user,HttpServletRequest request,HttpServletResponse response) {
+	public APIEntry login(@RequestBody User user,HttpServletRequest request,HttpServletResponse response) {
+
 		return service.login(user,request,response);
 		
 	}

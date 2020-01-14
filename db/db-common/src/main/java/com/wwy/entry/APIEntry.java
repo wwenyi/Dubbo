@@ -17,7 +17,7 @@ import lombok.experimental.Accessors;
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)
-public class APIEntry {
+public class APIEntry{
 	/**
 	 * 返回数据的状态码
 	 * 500表示异常
