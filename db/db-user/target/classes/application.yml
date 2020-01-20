@@ -19,7 +19,7 @@ dubbo:
     name: db-user
   registry:
   #注册中心（zookeeper的地址和客户端端口）
-    address: zookeeper://192.168.40.152:2181
+    address: zookeeper://192.168.42.132:2181
     #协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受。
   protocol:
     name: dubbo
